@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YourFarmerApp</string>
+    <string name="hint_username">User</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_identification">Identification</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="btn_access">Access</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_register">Register</string>
+    <string name="if_am_farmer">I am a farmer (if you \nare a farmer seller \ncheck the box)</string>
+    <string name="welcome_sumerce">Welcome \nsumerce !!!</string>
+    <string name="app_for_you">An app made \nfor you…</string>
+    <string name="map_help_your_customers">A map helping your \ncustomers to localize \nyour products</string>
+    <string name="text_skip">Skip</string>
+    <string name="text_publish">Publish</string>
+    <string name="text_my_products">My products</string>
+</resources>
