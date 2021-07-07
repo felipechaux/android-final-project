@@ -7,9 +7,5 @@ Papp/src/main/java/com/example/yourfarmerapp/view/dialog/SharedDialogViewModel.k
 Mapp/src/main/java/com/example/yourfarmerapp/view/fragment/IntroTwoFragment.kt,6/6/663d125b2b5c9c990b5b706ec2628fd43a55b5b0
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-|
-Lapp/src/main/java/com/example/yourfarmerapp/view/adapter/ViewPagerAdapter.kt,3/5/3588e0253b6d7e8e9e5502f2fe78a56abfcbd5ab
 z
 Japp/src/main/java/com/example/yourfarmerapp/view/fragment/LoginFragment.kt,4/f/4fd3a1b2d79850fd7f8a4aa8db4ed53dc481f3f1
-|
-Lapp/src/main/java/com/example/yourfarmerapp/view/fragment/PublishFragment.kt,e/4/e4a456964c81be4b4d7cd4cc03c67b1f55aaa13e

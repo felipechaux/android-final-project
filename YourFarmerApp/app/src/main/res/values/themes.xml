@@ -14,6 +14,8 @@
 
     <style name="InputForm" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textSize">@dimen/size_18</item>
+        <item name="boxStrokeColor">@color/greenDark</item>
+        <item name="hintTextColor">@color/greenDark</item>
     </style>
 
     <style name="LoginInputAppearance" parent="TextAppearance.AppCompat">
@@ -30,6 +32,10 @@
 
     <style name="InputAppearance.Medium" parent="NormalInputAppearance">
         <item name="android:textSize">@dimen/size_30</item>
+    </style>
+
+    <style name="InputAppearance.Small" parent="NormalInputAppearance">
+        <item name="android:textSize">@dimen/size_14</item>
     </style>
 
     <style name="ButtonShape">

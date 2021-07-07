@@ -3,11 +3,15 @@
     <string name="hint_username">Usuario</string>
     <string name="hint_password">Clave</string>
     <string name="hint_name">Nombre</string>
+    <string name="hint_product_name">Nombre del producto</string>
     <string name="hint_identification">Identificacion</string>
     <string name="hint_phone_number">Telefono</string>
+    <string name="hint_product_description">Descripcion del producto</string>
+    <string name="hint_product_value">Valor del producto $COP</string>
     <string name="btn_access">Acceder</string>
     <string name="btn_save">Guardar</string>
     <string name="btn_register">Registrarme</string>
+    <string name="btn_publish">Publicar</string>
     <string name="if_am_farmer">Soy campesino (Si eres \nun vendedor campesino \nmarca la casilla)</string>
     <string name="welcome_sumerce">Bienvenido \nsumerce !!!</string>
     <string name="app_for_you">Una app hecha \npara ti…</string>
@@ -15,4 +19,5 @@
     <string name="text_skip">Omitir</string>
     <string name="text_publish">Publicar</string>
     <string name="text_my_products">Mis productos</string>
+
 </resources>

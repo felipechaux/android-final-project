@@ -1,7 +1,9 @@
 <resources>
     <dimen name="dimen_2">2dp</dimen>
     <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
     <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
     <dimen name="margin_top_10">10dp</dimen>
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_10">10dp</dimen>
@@ -24,6 +26,7 @@
 
     <dimen name="spacing_50">50dp</dimen>
     <dimen name="spacing_28">28dp</dimen>
+    <dimen name="size_14">14sp</dimen>
     <dimen name="size_15">15sp</dimen>
     <dimen name="size_18">18sp</dimen>
     <dimen name="size_20">20sp</dimen>

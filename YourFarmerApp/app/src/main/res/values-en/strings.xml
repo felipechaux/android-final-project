@@ -4,11 +4,15 @@
     <string name="hint_username">User</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Name</string>
+    <string name="hint_product_name">Product name</string>
     <string name="hint_identification">Identification</string>
     <string name="hint_phone_number">Phone number</string>
+    <string name="hint_product_description">Product description</string>
+    <string name="hint_product_value">Product cost $COP</string>
     <string name="btn_access">Access</string>
     <string name="btn_save">Save</string>
     <string name="btn_register">Register</string>
+    <string name="btn_publish">Publish</string>
     <string name="if_am_farmer">I am a farmer (if you \nare a farmer seller \ncheck the box)</string>
     <string name="welcome_sumerce">Welcome \nsumerce !!!</string>
     <string name="app_for_you">An app made \nfor you…</string>

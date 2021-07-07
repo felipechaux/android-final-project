@@ -19,13 +19,13 @@ class PublishFragment : Fragment() {
         _binding = FragmentPublishBinding.inflate(inflater, container, false)
         val view = binding?.root
 
-        binding?.text?.textSize = 24f;
+       /* binding?.text?.textSize = 24f;
         // or animate
         binding?.text?.pivotX = 0f;
         binding?.text?.animate()?.scaleX(1.5f)
                 ?.setInterpolator(LinearInterpolator())
                 ?.setDuration(500)
-                ?.start();
+                ?.start();*/
 
         return view
     }
