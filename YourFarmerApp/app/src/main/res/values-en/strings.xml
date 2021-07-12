@@ -13,6 +13,8 @@
     <string name="btn_save">Save</string>
     <string name="btn_register">Register</string>
     <string name="btn_publish">Publish</string>
+    <string name="btn_edit">Edit</string>
+    <string name="quantity_product">Quantity</string>
     <string name="if_am_farmer">I am a farmer (if you \nare a farmer seller \ncheck the box)</string>
     <string name="welcome_sumerce">Welcome \nsumerce !!!</string>
     <string name="app_for_you">An app made \nfor you…</string>

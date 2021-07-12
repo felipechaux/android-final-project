@@ -5,18 +5,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.credibanco.smartpos.presentation.dialog.DialogBundleFactory.Companion.DISMISSABLE
+import com.credibanco.smartpos.presentation.dialog.DialogBundleFactory.Companion.PRODUCT
 import com.example.yourfarmerapp.R
+import com.example.yourfarmerapp.entities.Product
+import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
+
 
 class FarmerDialogFragment : DialogFragment() {
     private var positiveListener: (() -> Unit)? = null
     private var negativeListener: (() -> Unit)? = null
     private val sharedViewModel: SharedDialogViewModel by activityViewModels()
+    private var product: Product? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +29,9 @@ class FarmerDialogFragment : DialogFragment() {
     ): View? {
         val type = arguments?.get(DialogBundleFactory.DIALOG_TYPE)
         val dismissable = arguments?.getBoolean(DISMISSABLE, true)
+        arguments?.run {
+            product = getParcelable(PRODUCT)
+        }
         dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         setListeners()
 
@@ -32,8 +39,9 @@ class FarmerDialogFragment : DialogFragment() {
             dialog?.setCanceledOnTouchOutside(it)
         }
 
-        return when(type) {
+        return when (type) {
             DialogBundleFactory.REGISTER_TYPE -> setRegisterDialogValues(inflater, container)
+            DialogBundleFactory.EDIT_PRODUCT_TYPE -> setEditProductDialogValues(inflater, container)
             DialogBundleFactory.LOADER_TYPE -> setLoaderDialogValues(inflater, container)
             else -> null
         }
@@ -54,7 +62,7 @@ class FarmerDialogFragment : DialogFragment() {
         sharedViewModel.removeListeners()
     }
 
-    private fun setRegisterDialogValues(inflater: LayoutInflater, container: ViewGroup?): View{
+    private fun setRegisterDialogValues(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.register_dialog, container, false)
         val positiveButton: TextView = view.findViewById(R.id.button_save)
         val btnClose: ImageView = view.findViewById(R.id.img_close)
@@ -68,23 +76,46 @@ class FarmerDialogFragment : DialogFragment() {
         return view
     }
 
+    private fun setEditProductDialogValues(inflater: LayoutInflater, container: ViewGroup?): View {
+        val view = inflater.inflate(R.layout.edit_product_dialog, container, false)
+        val positiveButton: ImageButton = view.findViewById(R.id.btn_edit)
+        val quantityValueSpinner: Spinner = view.findViewById(R.id.quantity_value)
+        val btnClose: ImageView = view.findViewById(R.id.img_close)
+        val textProductName: TextView = view.findViewById(R.id.text_product)
+        val textProductDescription: TextView = view.findViewById(R.id.text_description)
 
-    private fun setLoaderDialogValues(inflater: LayoutInflater, container: ViewGroup?): View? {
-       // val view = inflater.inflate(R.layout.loader_dialog, container, false)
-      //  val title: TextView = view.findViewById(R.id.text_title)
-      //  val progressIndicator: CircularProgressIndicator = view.findViewById(R.id.progress_indicator)
+        textProductName.text = product?.productName
+        textProductDescription.text = product?.productDescription
+        val list = arrayOf(
+            product?.productQuantity.toString(),
+            "2",
+            "3",
+            "4"
+        )
+        quantityValueSpinner.adapter =
+            activity?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, list) }
 
-        arguments?.let {
-      //      title.text = it.getString(DialogBundleFactory.DIALOG_TITLE)
+        btnClose.setOnClickListener {
+            dismiss()
+        }
+        positiveButton.setOnClickListener {
+            onPositiveButtonClicked()
         }
 
-       // progressIndicator.show()
-
-        return null
+        return view
     }
 
-    private fun onNegativeButtonClicked() {
-        negativeListener?.invoke()
+
+    private fun setLoaderDialogValues(inflater: LayoutInflater, container: ViewGroup?): View? {
+        // val view = inflater.inflate(R.layout.loader_dialog, container, false)
+        //  val title: TextView = view.findViewById(R.id.text_title)
+        //  val progressIndicator: CircularProgressIndicator = view.findViewById(R.id.progress_indicator)
+
+        arguments?.let {
+            //      title.text = it.getString(DialogBundleFactory.DIALOG_TITLE)
+        }
+        // progressIndicator.show()
+        return null
     }
 
     private fun onPositiveButtonClicked() {

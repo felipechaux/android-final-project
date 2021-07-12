@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.ActivityIntroBinding
 import com.example.yourfarmerapp.view.adapter.ViewPagerAdapter
 import com.example.yourfarmerapp.view.fragment.IntroOneFragment
@@ -57,7 +58,9 @@ class IntroActivity : AppCompatActivity() {
                 }
             })
             binding.textSkip.setOnClickListener {
-                startActivity(Intent(this, HomeActivity::class.java))
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra(getString(R.string.intent_is_home),true)
+                startActivity(intent)
                 finish()
             }
             binding.buttonBack.setOnClickListener {
@@ -71,8 +74,9 @@ class IntroActivity : AppCompatActivity() {
                 if (position < fragmentList.lastIndex) {
                     binding.vpIntro.currentItem = position + 1
                 } else {
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    finish()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra(getString(R.string.intent_is_home),true)
+                    startActivity(intent)
                 }
             }
         } catch (e: Exception) {

@@ -1,4 +1,4 @@
-package com.credibanco.smartpos.presentation.dialog
+package com.example.yourfarmerapp.view.dialog
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -5,13 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.yourfarmerapp.view.dialog.DialogProvider
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.FragmentLoginBinding
+import com.example.yourfarmerapp.view.MainViewModel
+import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 
 class LoginFragment : Fragment() {
 
+    private val mainViewModel: MainViewModel by activityViewModels()
+    private val sharedViewModel: SharedDialogViewModel by activityViewModels()
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding
 
@@ -24,6 +29,7 @@ class LoginFragment : Fragment() {
         val view = binding?.root
 
         addButtonsListeners()
+        mainViewModel.hideTabLayout()
         return view
     }
 
@@ -32,18 +38,21 @@ class LoginFragment : Fragment() {
             goToIntroActivity()
         }
         binding?.buttonRegister?.setOnClickListener {
-            showRegisterModal()
+            showRegisterDialog()
         }
     }
 
-    private fun goToIntroActivity(){
+    private fun goToIntroActivity() {
         findNavController().navigate(R.id.action_loginFragment_to_introActivity)
     }
 
-    private fun showRegisterModal(){
+    private fun showRegisterDialog() {
         DialogProvider.showRegisterDialog(
-                this,
-                R.id.action_loginFragment_to_farmerDialogFragment
+            this,
+            sharedViewModel,
+            R.id.action_loginFragment_to_farmerDialogFragment, positiveCallback = {
+                println("register user")
+            }
         )
     }
 }

@@ -27,5 +27,35 @@
         android:id="@+id/introActivity"
         android:name="com.example.yourfarmerapp.view.IntroActivity"
         android:label="IntroActivity" />
-
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.yourfarmerapp.view.fragment.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_productsFragment_to_farmerDialogFragment"
+            app:destination="@id/farmerDialogFragment" />
+        <action
+            android:id="@+id/action_productsFragment_to_introOneFragment"
+            app:destination="@id/introOneFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.yourfarmerapp.view.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+    <fragment
+        android:id="@+id/introOneFragment"
+        android:name="com.example.yourfarmerapp.view.fragment.IntroOneFragment"
+        android:label="fragment_intro_one"
+        tools:layout="@layout/fragment_intro_one" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.yourfarmerapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_farmerDialogFragment"
+            app:destination="@id/farmerDialogFragment" />
+    </fragment>
 </navigation>
