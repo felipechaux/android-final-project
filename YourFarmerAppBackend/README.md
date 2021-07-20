@@ -1,5 +1,15 @@
 **Principal-layouts**
 
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/validation-login.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/login-service.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/register-validation.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/user-register.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/register-user-succes.png" />
+
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/capture1.png" />
 
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/capture2.png" />
