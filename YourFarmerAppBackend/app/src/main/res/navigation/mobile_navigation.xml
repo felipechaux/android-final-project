@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.yourfarmerapp.view.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_farmerDialogFragment"
+            app:destination="@id/farmerDialogFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_introActivity"
+            app:destination="@id/introActivity" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/farmerDialogFragment"
+        android:name="com.felipechauxlab.yourfarmerapp.view.dialog.FarmerDialogFragment"
+        android:label="FarmerDialogFragment" >
+    </dialog>
+    <activity
+        android:id="@+id/introActivity"
+        android:name="com.example.yourfarmerapp.view.IntroActivity"
+        android:label="IntroActivity" />
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.yourfarmerapp.view.fragment.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_productsFragment_to_farmerDialogFragment"
+            app:destination="@id/farmerDialogFragment" />
+        <action
+            android:id="@+id/action_productsFragment_to_introOneFragment"
+            app:destination="@id/introOneFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.yourfarmerapp.view.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+    <fragment
+        android:id="@+id/introOneFragment"
+        android:name="com.example.yourfarmerapp.view.fragment.IntroOneFragment"
+        android:label="fragment_intro_one"
+        tools:layout="@layout/fragment_intro_one" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.yourfarmerapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_farmerDialogFragment"
+            app:destination="@id/farmerDialogFragment" />
+    </fragment>
+</navigation>
