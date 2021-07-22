@@ -63,12 +63,11 @@ class LoginFragmentPresenter : ViewModel() {
 
                     override fun onResponse(call: Call<ResponseDTO>, response: Response<ResponseDTO>) {
                         val res = response.body()
+                        _showOrHideLoader.value = false
                         if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
-                            _showOrHideLoader.value = false
                             Toast.makeText(context, context.getString(R.string.register_user_success), Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
-                            _showOrHideLoader.value = false
                         }
                     }
                 }
@@ -80,18 +79,17 @@ class LoginFragmentPresenter : ViewModel() {
         RestApiAdapter.build()?.postAuthUser(requestAuthUserDTO)?.enqueue(
                 object : Callback<ResponseDTO> {
                     override fun onFailure(call: Call<ResponseDTO>, t: Throwable) {
-                        Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
                         _showOrHideLoader.value = false
+                        Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<ResponseDTO>, response: Response<ResponseDTO>) {
                         val res = response.body()
+                        _showOrHideLoader.value = false
                         if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
-                            _showOrHideLoader.value = false
                             _goToIntro.value = true
                         } else {
                             Toast.makeText(context, context.getString(R.string.user_not_found), Toast.LENGTH_SHORT).show()
-                            _showOrHideLoader.value = false
                         }
                     }
                 }

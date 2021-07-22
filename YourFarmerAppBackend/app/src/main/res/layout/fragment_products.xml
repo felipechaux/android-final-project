@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.ProductsFragment">
+    tools:context="com.felipechauxlab.yourfarmerapp.view.fragment.ProductsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="@dimen/margin_30"

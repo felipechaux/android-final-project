@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.ProductsFragment">
+    tools:context="com.felipechauxlab.yourfarmerapp.view.fragment.ProductsFragment">
 
     <ImageButton
         android:id="@+id/img_camera"
@@ -14,6 +14,7 @@
         android:background="@drawable/camera_bg"
         android:contentDescription="@string/app_name"
         android:src="@mipmap/ic_camera"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_20"
-        android:layout_marginTop="@dimen/margin_55"
+        android:layout_marginTop="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +83,17 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/quantity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_value"
+        tools:ignore="RtlCompat" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_publish"
         style="@style/LoginButton"
@@ -93,6 +105,6 @@
         android:text="@string/btn_publish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_value" />
+        app:layout_constraintTop_toBottomOf="@+id/quantity_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

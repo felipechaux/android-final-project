@@ -23,7 +23,11 @@
     <string name="text_my_products">Mis productos</string>
     <string name="intent_is_home" translatable="false">isHome</string>
     <string name="register_user_success">Registro exitoso!!</string>
+    <string name="product_published">Producto publicado!!</string>
     <string name="error_has_occurred">Ha ocurrido un error!!</string>
     <string name="complete_all_fields">Debes completar todos los campos!!</string>
+    <string name="complete_some_publish_fields">Debes completar al menos (Foto, Nombre y Valor)</string>
     <string name="user_not_found">Usuario no encontrado!!</string>
+    <string name="text_loading">Cargando</string>
+    <string name="product_image_uploaded">Imagen cargada</string>
 </resources>

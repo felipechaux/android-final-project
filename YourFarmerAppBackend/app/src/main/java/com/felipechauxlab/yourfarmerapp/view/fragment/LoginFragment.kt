@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp.view.fragment
+package com.felipechauxlab.yourfarmerapp.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +17,6 @@ import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User
 import com.felipechauxlab.yourfarmerapp.presenter.LoginFragmentPresenter
-import com.felipechauxlab.yourfarmerapp.restApi.dto.request.RequestAuthUserDTO
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
 
 class LoginFragment : Fragment() {
@@ -61,7 +60,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun showLoader() {
-        val bundle = DialogBundleFactory().getDialogBundle("Procesando", false)
+        val bundle = DialogBundleFactory().getDialogBundle(getString(R.string.text_loading), false)
         navController.navigate(R.id.action_loginFragment_to_farmerDialogFragment, bundle)
     }
 

@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp.view.fragment
+package com.felipechauxlab.yourfarmerapp.view.fragment
 
 import android.content.res.Configuration
 import android.os.Bundle

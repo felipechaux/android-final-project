@@ -13,8 +13,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.ActivityMainBinding
 import com.example.yourfarmerapp.view.adapter.ViewPagerAdapter
-import com.example.yourfarmerapp.view.fragment.ProductsFragment
-import com.example.yourfarmerapp.view.fragment.PublishFragment
+import com.felipechauxlab.yourfarmerapp.view.fragment.ProductsFragment
+import com.felipechauxlab.yourfarmerapp.view.fragment.PublishFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.lifecycle.Observer
