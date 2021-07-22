@@ -1,5 +1,15 @@
 **Principal-layouts**
 
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-1.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-2.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-3.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-4.png" />
+
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-5.png" />
+
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/validation-login.png" />
 
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/login-service.png" />
