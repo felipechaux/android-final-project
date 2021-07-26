@@ -21,7 +21,5 @@ x
 Happ/src/main/java/com/felipechauxlab/yourfarmerapp/view/MainViewModel.kt,d/7/d76622838729cebae174f3f3fbe914dfa7e054e5
 Å
 Qapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/LoginFragment.kt,f/7/f7ff0f809edf664689b3ffe98bc286e2dae9c9d5
-Ü
-Vapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/FarmerDialogFragment.kt,7/0/70060664f3e1f2372326b3adcb295423fb687d40
 í
 bapp/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/request/RequestPublishProductDTO.kt,f/4/f46fc73d84314da32850d7418212c444fc3d2a19

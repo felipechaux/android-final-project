@@ -9,13 +9,12 @@ import android.widget.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.DISMISSABLE
-import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.PRODUCT
 import com.example.yourfarmerapp.R
-import com.felipechauxlab.yourfarmerapp.entities.Product
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User
-import com.felipechauxlab.yourfarmerapp.restApi.dto.request.RequestRegisterUserDTO
+import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
+import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.DISMISSABLE
+import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.PRODUCT
 import com.google.android.material.progressindicator.CircularProgressIndicator
 
 
@@ -24,7 +23,7 @@ class FarmerDialogFragment : DialogFragment() {
     private var negativeListener: (() -> Unit)? = null
     private var userPositiveListener: ((User) -> Unit)? = null
     private val sharedViewModel: SharedDialogViewModel by activityViewModels()
-    private var product: Product? = null
+    private var product: PublishProductDTO? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,

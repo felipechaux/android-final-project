@@ -97,8 +97,8 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
     }
 
     override fun createAdapter(products: List<PublishProductDTO?>?): MyProductsAdapter {
-        return MyProductsAdapter(products) { _, product ->
-            when (this.id) {
+        return MyProductsAdapter(products) { id, product ->
+            when (id) {
                 R.id.btn_edit -> {
                     showEditProductDialog(product)
                 }
