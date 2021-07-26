@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp.adapter
+package com.felipechauxlab.yourfarmerapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yourfarmerapp.R
-import com.felipechauxlab.yourfarmerapp.entities.Product
+import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 
-class MyProductsAdapter(private val listProducts: List<Product>, private val listener: (Int, Product) -> Unit) : RecyclerView.Adapter<MyProductsAdapter.MyProductsAdapterViewHolder>() {
+class MyProductsAdapter(private val listProducts: List<PublishProductDTO?>?, private val listener: (Int, PublishProductDTO?) -> Unit) : RecyclerView.Adapter<MyProductsAdapter.MyProductsAdapterViewHolder>() {
 
     override fun onCreateViewHolder(
             parent: ViewGroup,
@@ -24,9 +24,9 @@ class MyProductsAdapter(private val listProducts: List<Product>, private val lis
             myProductsAdapterViewHolder: MyProductsAdapterViewHolder,
             position: Int
     ) {
-        val item: Product = listProducts[position]
-        myProductsAdapterViewHolder.textProductName.text = item.productName
-        myProductsAdapterViewHolder.textProductQuantity.text = item.productQuantity.toString()
+        val item: PublishProductDTO? = listProducts?.get(position)
+        myProductsAdapterViewHolder.textProductName.text = item?.productName
+        myProductsAdapterViewHolder.textProductQuantity.text = item?.productQuantity.toString()
 
         myProductsAdapterViewHolder.buttonEdit.setOnClickListener {
             listener(it.id,item)
@@ -37,7 +37,7 @@ class MyProductsAdapter(private val listProducts: List<Product>, private val lis
     }
 
     override fun getItemCount(): Int {
-        return listProducts.size
+        return listProducts!!.size
     }
 
     class MyProductsAdapterViewHolder(itemView: View) :

@@ -5,9 +5,11 @@ import com.felipechauxlab.yourfarmerapp.restApi.dto.request.RequestPublishProduc
 import com.felipechauxlab.yourfarmerapp.restApi.dto.request.RequestRegisterUserDTO
 import com.felipechauxlab.yourfarmerapp.restApi.dto.response.ResponseDTO
 import com.felipechauxlab.yourfarmerapp.restApi.dto.response.ResponsePhotoDTO
+import com.felipechauxlab.yourfarmerapp.restApi.dto.response.ResponsePublishProductsDTO
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
@@ -26,5 +28,8 @@ interface YourFarmerService {
 
     @POST(ConstantsRestApi.POST_PUBLISH_PRODUCT)
     fun postPublishProduct(@Body requestPublishProductDTO: RequestPublishProductDTO): Call<ResponseDTO>
+
+    @GET(ConstantsRestApi.GET_PUBLISH_PRODUCTS)
+    fun getPublishProducts(): Call<ResponsePublishProductsDTO>
 
 }

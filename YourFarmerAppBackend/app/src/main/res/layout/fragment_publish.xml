@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_100"
-        android:layout_marginTop="@dimen/margin_55"
+        android:layout_marginTop="@dimen/margin_30"
         android:layout_marginEnd="@dimen/margin_100"
         android:text="@string/btn_publish"
         app:layout_constraintEnd_toEndOf="parent"

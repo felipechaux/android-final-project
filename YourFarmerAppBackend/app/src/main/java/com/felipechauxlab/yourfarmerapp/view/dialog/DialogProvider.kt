@@ -5,6 +5,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.Product
 import com.felipechauxlab.yourfarmerapp.entities.User
+import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 
 object DialogProvider {
 
@@ -26,12 +27,12 @@ object DialogProvider {
     }
 
     fun showEditProductDialog(
-            product: Product,
+            product: PublishProductDTO?,
             fragment: Fragment,
             sharedDialogViewModel: SharedDialogViewModel,
             actionId: Int,
             dismissable: Boolean = true,
-            positiveCallback: (Product) -> Unit
+            positiveCallback: (PublishProductDTO?) -> Unit
 
     ) {
         val bundle = DialogBundleFactory().getEditProductDialogBundle(
