@@ -2,7 +2,6 @@ package com.felipechauxlab.yourfarmerapp.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.yourfarmerapp.view.MainViewModel
 
 class MainViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 

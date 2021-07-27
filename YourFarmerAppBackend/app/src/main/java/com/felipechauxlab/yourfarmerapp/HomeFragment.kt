@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp
+package com.felipechauxlab.yourfarmerapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.yourfarmerapp.databinding.FragmentHomeBinding
-import com.example.yourfarmerapp.view.MainViewModel
+import com.felipechauxlab.yourfarmerapp.view.MainViewModel
 
 class HomeFragment : Fragment() {
 

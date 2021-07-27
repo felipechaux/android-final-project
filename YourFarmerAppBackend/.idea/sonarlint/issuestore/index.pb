@@ -15,10 +15,6 @@ P
 `app/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/request/RequestRegisterUserDTO.kt,7/d/7dcda546f71cccda4299144872fe59cc8a446c8d
 å
 \app/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/request/RequestAuthUserDTO.kt,8/a/8a7406f686b42f558beb55f31a77a1768cec9cfd
-w
-Gapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/MainActivity.kt,e/8/e868c0d952b308444b128321eb4d2fa16482559a
-x
-Happ/src/main/java/com/felipechauxlab/yourfarmerapp/view/MainViewModel.kt,d/7/d76622838729cebae174f3f3fbe914dfa7e054e5
 Å
 Qapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/LoginFragment.kt,f/7/f7ff0f809edf664689b3ffe98bc286e2dae9c9d5
 í

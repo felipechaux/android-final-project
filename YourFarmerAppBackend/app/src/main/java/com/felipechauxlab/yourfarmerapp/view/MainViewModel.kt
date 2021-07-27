@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp.view
+package com.felipechauxlab.yourfarmerapp.view
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

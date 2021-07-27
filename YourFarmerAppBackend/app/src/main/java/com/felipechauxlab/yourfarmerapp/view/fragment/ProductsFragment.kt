@@ -1,5 +1,6 @@
 package com.felipechauxlab.yourfarmerapp.view.fragment
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -34,44 +35,10 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
     ): View? {
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
         val view = binding?.root
-        //initMyProductsAdapter()
 
-        activity?.let { viewModel.getPublishProducts(it,this) }
+        logicIndicator()
+        activity?.let { viewModel.getPublishProducts(it, this) }
         return view
-    }
-
-    private fun initMyProductsAdapter() {
-        /* val products: ArrayList<Product> = ArrayList()
-         val productOne = Product().apply {
-             this.productName = "Panela"
-             this.productQuantity = 4
-         }
-         val productTwo = Product().apply {
-             this.productName = "Platano verde"
-             this.productQuantity = 10
-         }
-         products.add(productOne)
-         products.add(productTwo)
-         val adapter = MyProductsAdapter(products) { id, product->
-             when (id) {
-                 R.id.btn_edit -> {
-                     showEditProductDialog(product)
-                 }
-                 R.id.btn_delete -> {
-                     println("delete $product")
-                 }
-             }
-         }
-
-         intOrientation = resources.configuration.orientation;
-         if (intOrientation == Configuration.ORIENTATION_PORTRAIT) {
-             layoutManager = LinearLayoutManager(context)
-             (layoutManager as LinearLayoutManager).orientation = LinearLayoutManager.VERTICAL
-         } else {
-             layoutManager = GridLayoutManager(context, 2)
-         }
-         binding?.rvMyProducts?.layoutManager = layoutManager
-         binding?.rvMyProducts?.adapter = adapter*/
     }
 
     private fun showEditProductDialog(publishProductDTO: PublishProductDTO?) {
@@ -107,6 +74,15 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
                 }
             }
         }
+    }
+
+    private fun logicIndicator() {
+        binding?.productIndicator?.setOnRefreshListener { this.refreshContent() }
+    }
+
+    private fun refreshContent() {
+        activity?.let { viewModel.getPublishProducts(it, this) }
+        binding?.productIndicator?.isRefreshing = false
     }
 
     override fun initAdapterMyProducts(adapter: MyProductsAdapter) {

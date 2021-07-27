@@ -17,7 +17,7 @@
             android:name=".view.IntroActivity"
             android:theme="@style/Theme.YourFarmerApp.NoActionBar"/>
         <activity
-            android:name=".view.HomeActivity"
+            android:name="com.felipechauxlab.yourfarmerapp.view.HomeActivity"
             android:theme="@style/Theme.YourFarmerApp.NoActionBar"/>
         <activity
             android:name=".view.MainActivity"

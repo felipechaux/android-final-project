@@ -41,7 +41,7 @@
     </fragment>
     <activity
         android:id="@+id/homeActivity"
-        android:name="com.example.yourfarmerapp.view.HomeActivity"
+        android:name="com.felipechauxlab.yourfarmerapp.view.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
     <fragment
@@ -51,7 +51,7 @@
         tools:layout="@layout/fragment_intro_one" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.yourfarmerapp.HomeFragment"
+        android:name="com.felipechauxlab.yourfarmerapp.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action

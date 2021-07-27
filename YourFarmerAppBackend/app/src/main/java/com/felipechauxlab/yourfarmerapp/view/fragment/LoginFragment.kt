@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.FragmentLoginBinding
-import com.example.yourfarmerapp.view.MainViewModel
+import com.felipechauxlab.yourfarmerapp.view.MainViewModel
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User

@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.felipechauxlab.yourfarmerapp.view.fragment.ProductsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/product_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_my_products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,5 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

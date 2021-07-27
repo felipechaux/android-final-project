@@ -19,6 +19,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.felipechauxlab.yourfarmerapp.view.MainViewModel
 import com.felipechauxlab.yourfarmerapp.view.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {

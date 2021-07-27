@@ -11,11 +11,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
+import com.felipechauxlab.yourfarmerapp.adapter.CircleTransform
 import com.felipechauxlab.yourfarmerapp.entities.User
 import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.DISMISSABLE
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory.Companion.PRODUCT
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.squareup.picasso.Picasso
 
 
 class FarmerDialogFragment : DialogFragment() {
@@ -110,12 +112,14 @@ class FarmerDialogFragment : DialogFragment() {
 
     private fun setEditProductDialogValues(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.edit_product_dialog, container, false)
+        val imageProduct: ImageView = view.findViewById(R.id.img_product)
         val positiveButton: ImageButton = view.findViewById(R.id.btn_edit)
         val quantityValueSpinner: Spinner = view.findViewById(R.id.quantity_value)
         val btnClose: ImageView = view.findViewById(R.id.img_close)
         val textProductName: TextView = view.findViewById(R.id.text_product)
         val textProductDescription: TextView = view.findViewById(R.id.text_description)
 
+        getImageUrl(imageProduct,product?.productPhoto.toString())
         textProductName.text = product?.productName
         textProductDescription.text = product?.productDescription
         val list = arrayOf(
@@ -155,5 +159,13 @@ class FarmerDialogFragment : DialogFragment() {
 
     private fun onPositiveUserButtonClicked(user: User) {
         userPositiveListener?.invoke(user)
+    }
+
+    private fun getImageUrl(image: ImageView, url: String) {
+        try {
+            Picasso.get().load(url).transform(CircleTransform()).into(image)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

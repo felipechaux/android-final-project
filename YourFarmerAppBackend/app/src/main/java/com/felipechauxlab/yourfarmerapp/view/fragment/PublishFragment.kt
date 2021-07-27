@@ -18,9 +18,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.FragmentPublishBinding
+import com.felipechauxlab.yourfarmerapp.adapter.CircleTransform
 import com.felipechauxlab.yourfarmerapp.presenter.PublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
+import com.squareup.picasso.Picasso
 
 
 class PublishFragment : Fragment() {
@@ -115,9 +117,11 @@ class PublishFragment : Fragment() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imgBitmap = data?.extras?.get("data") as Bitmap
             binding?.imgCamera?.setImageBitmap(imgBitmap)
+
             val file = activity?.let { viewModel.bitmapToFile(it, imgBitmap) }
             file?.let { bitmapFile ->
                 activity?.let { viewModel.uploadPhoto(it, bitmapFile) }
+                Picasso.get().load(bitmapFile).transform(CircleTransform()).into(binding?.imgCamera)
             }
         }
     }
