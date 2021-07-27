@@ -54,7 +54,7 @@ class MyProductsAdapter(private val listProducts: List<PublishProductDTO?>?, pri
 
     private fun getImageUrl(image: ImageView, url: String) {
         try {
-            Picasso.get().load(url).into(image)
+            Picasso.get().load(url).transform(CircleTransform()).into(image)
         } catch (e: Exception) {
             e.printStackTrace()
         }
