@@ -29,6 +29,9 @@ interface YourFarmerService {
     @POST(ConstantsRestApi.POST_PUBLISH_PRODUCT)
     fun postPublishProduct(@Body requestPublishProductDTO: RequestPublishProductDTO): Call<ResponseDTO>
 
+    @POST(ConstantsRestApi.POST_EDIT_PRODUCT)
+    fun postEditProduct(@Body requestPublishProductDTO: RequestPublishProductDTO): Call<ResponseDTO>
+
     @GET(ConstantsRestApi.GET_PUBLISH_PRODUCTS)
     fun getPublishProducts(): Call<ResponsePublishProductsDTO>
 

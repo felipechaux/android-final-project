@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_product"
         style="@style/InputAppearance.Small"
         android:layout_width="wrap_content"
@@ -77,6 +77,26 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_cost"
+        style="@style/InputForm"
+        android:layout_width="@dimen/margin_300"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_cost"
+            style="@style/InputAppearance.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_product_value"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/text_edit"
         style="@style/InputAppearance.Small"
@@ -87,7 +107,7 @@
         android:text="@string/btn_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_description" />
+        app:layout_constraintTop_toBottomOf="@+id/text_input_cost" />
 
     <ImageButton
         android:id="@+id/btn_edit"

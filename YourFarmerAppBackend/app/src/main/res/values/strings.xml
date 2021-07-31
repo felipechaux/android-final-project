@@ -24,6 +24,7 @@
     <string name="intent_is_home" translatable="false">isHome</string>
     <string name="register_user_success">Registro exitoso!!</string>
     <string name="product_published">Producto publicado!!</string>
+    <string name="product_updated">Producto actualizado!!</string>
     <string name="error_has_occurred">Ha ocurrido un error!!</string>
     <string name="complete_all_fields">Debes completar todos los campos!!</string>
     <string name="complete_some_publish_fields">Debes completar al menos (Foto, Nombre y Valor)</string>

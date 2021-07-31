@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +21,7 @@ import com.felipechauxlab.yourfarmerapp.adapter.MyProductsAdapter
 import com.felipechauxlab.yourfarmerapp.presenter.IPublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.presenter.PublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
+import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 
 class ProductsFragment : Fragment(), IProductsFragmentView {
@@ -28,27 +32,38 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
     private val binding get() = _binding
     private var intOrientation = 0
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private var presenter: IPublishFragmentPresenter? = null
+    private lateinit var navController: NavController
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
         val view = binding?.root
-
+        navController = findNavController()
+        addObservers()
         logicIndicator()
         activity?.let { viewModel.getPublishProducts(it, this) }
         return view
     }
 
+    private fun addObservers() {
+        viewModel.successProductUpdated.observe(viewLifecycleOwner, Observer {
+            if(it){
+                refreshContent()
+            }
+        })
+
+    }
+
     private fun showEditProductDialog(publishProductDTO: PublishProductDTO?) {
         DialogProvider.showEditProductDialog(
-                publishProductDTO,
-                this,
-                sharedViewModel,
-                R.id.action_homeFragment_to_farmerDialogFragment, positiveCallback = {
-            println("edit product $it")
-        }
+            publishProductDTO,
+            this,
+            sharedViewModel,
+            R.id.action_homeFragment_to_farmerDialogFragment, positiveCallback = {
+                NavigationUtils.closeDialog(navController, R.id.farmerDialogFragment)
+                context?.let { context -> viewModel.editProduct(context, it) }
+            }
         )
     }
 

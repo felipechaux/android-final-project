@@ -25,7 +25,7 @@
     </dialog>
     <activity
         android:id="@+id/introActivity"
-        android:name="com.example.yourfarmerapp.view.IntroActivity"
+        android:name="com.felipechauxlab.yourfarmerapp.view.IntroActivity"
         android:label="IntroActivity" />
     <fragment
         android:id="@+id/productsFragment"

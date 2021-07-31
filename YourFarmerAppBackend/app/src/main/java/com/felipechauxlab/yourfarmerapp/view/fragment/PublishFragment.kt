@@ -64,6 +64,7 @@ class PublishFragment : Fragment() {
     }
 
     private fun showLoader() {
+      //  NavigationUtils.closeDialog(navController, R.id.farmerDialogFragment)
         val bundle = DialogBundleFactory().getDialogBundle(getString(R.string.text_loading), false)
         navController.navigate(R.id.action_homeFragment_to_farmerDialogFragment, bundle)
     }

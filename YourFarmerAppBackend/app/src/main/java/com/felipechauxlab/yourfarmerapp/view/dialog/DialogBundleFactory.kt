@@ -1,7 +1,6 @@
 package com.felipechauxlab.yourfarmerapp.view.dialog
 
 import android.os.Bundle
-import com.felipechauxlab.yourfarmerapp.entities.Product
 import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 
 class DialogBundleFactory {

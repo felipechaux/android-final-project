@@ -24,6 +24,7 @@
     <string name="text_my_products">My products</string>
     <string name="register_user_success">Register success!!</string>
     <string name="product_published">Product published!!</string>
+    <string name="product_updated">Product updated!!</string>
     <string name="error_has_occurred">an error has occurred!!</string>
     <string name="complete_all_fields">Please complete all required fields!!</string>
     <string name="complete_some_publish_fields">You must complete (Photo, Name and Cost)</string>

@@ -31,29 +31,30 @@ import java.util.*
 class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
 
     private val _showOrHideLoader = MutableLiveData<Boolean>()
-    private val _uploadedPhotoSuccess = MutableLiveData<String>()
+    private val _successProductUpdated = MutableLiveData<Boolean>()
+    private val _uploadedPhotoSuccess = MutableLiveData<String?>()
     private var products: List<PublishProductDTO?>? = null
     private var iProductsV: IProductsFragmentView?=null
 
     val showOrHideLoader: LiveData<Boolean>
         get() = _showOrHideLoader
 
-    val uploadedPhotoSuccess: LiveData<String>
+    val successProductUpdated: LiveData<Boolean>
+        get() = _successProductUpdated
+
+    val uploadedPhotoSuccess: LiveData<String?>
         get() =_uploadedPhotoSuccess
 
     fun uploadPhoto(context: Context, file: File) {
-        _showOrHideLoader.value = true
         val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
         val body: MultipartBody.Part = MultipartBody.Part.createFormData("file", file.name, requestFile)
         RestApiAdapter.build()?.uploadPhoto(body)?.enqueue(
                 object : Callback<ResponsePhotoDTO> {
                     override fun onFailure(call: Call<ResponsePhotoDTO>, t: Throwable) {
-                        _showOrHideLoader.value = false
                         Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<ResponsePhotoDTO>, response: Response<ResponsePhotoDTO>) {
-                        _showOrHideLoader.value = false
                         if (response.code() == 200) {
                             _uploadedPhotoSuccess.value = response.body()?.secureUrl.toString()
                             Toast.makeText(context, context.getString(R.string.product_image_uploaded), Toast.LENGTH_SHORT).show()
@@ -87,6 +88,45 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
         )
     }
 
+    fun editProduct(context: Context,productDTO: PublishProductDTO?){
+        if (productDTO?.productName?.isNotEmpty() == true && productDTO.productCost?.isNotEmpty() == true && productDTO.productDescription?.isNotEmpty() == true) {
+            val createRequestPublishProduct = RequestPublishProductDTO().apply {
+                this.idProduct= productDTO.productKey
+                this.productName= productDTO.productName
+                this.productDescription= productDTO.productDescription
+                this.productCost= productDTO.productCost?.toLong()
+                this.productPhoto= productDTO.productPhoto
+                this.productQuantity= productDTO.productQuantity
+            }
+            postEditProduct(context, createRequestPublishProduct)
+        }else{
+            Toast.makeText(context, context.getString(R.string.complete_all_fields), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun postEditProduct(context: Context, requestPublishProductDTO: RequestPublishProductDTO) {
+        _showOrHideLoader.value = true
+        RestApiAdapter.build()?.postEditProduct(requestPublishProductDTO)?.enqueue(
+            object : Callback<ResponseDTO> {
+                override fun onFailure(call: Call<ResponseDTO>, t: Throwable) {
+                    _showOrHideLoader.value = false
+                    Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call<ResponseDTO>, response: Response<ResponseDTO>) {
+                    val res = response.body()
+                    _showOrHideLoader.value = false
+                    if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
+                        _successProductUpdated.value=true
+                        Toast.makeText(context, context.getString(R.string.product_updated), Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        )
+    }
+
 
     fun validatePublishProduct(context: Context, photoUrl: String?, name: String?, description: String, cost: String?, quantity: Int){
       if (photoUrl!=null  && name!=null && cost?.isNotEmpty() == true) {
@@ -102,6 +142,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
           Toast.makeText(context, context.getString(R.string.complete_some_publish_fields), Toast.LENGTH_SHORT).show()
       }
     }
+
 
      fun bitmapToFile(context: Context, bitmap: Bitmap): File {
         val wrapper = ContextWrapper(context)
@@ -145,6 +186,10 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
     override fun showPublishProducts() {
         iProductsV?.createAdapter(products)?.let { iProductsV?.initAdapterMyProducts(it) }
         iProductsV?.generateGridLayout()
+    }
+
+    fun resetValues(){
+        _uploadedPhotoSuccess.value=null
     }
 
 }

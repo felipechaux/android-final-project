@@ -5,21 +5,25 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class PublishProductDTO(
-        @SerializedName("productCost") var productCost: String? = null,
-        @SerializedName("productName") var productName: String? = null,
-        @SerializedName("productDescription") var productDescription: String? = null,
-        @SerializedName("productPhoto") var productPhoto: String? = null,
-        @SerializedName("productQuantity") var productQuantity: Int? = null
-):Parcelable {
+    @SerializedName("productKey") var productKey: String? = null,
+    @SerializedName("productCost") var productCost: String? = null,
+    @SerializedName("productName") var productName: String? = null,
+    @SerializedName("productDescription") var productDescription: String? = null,
+    @SerializedName("productPhoto") var productPhoto: String? = null,
+    @SerializedName("productQuantity") var productQuantity: Int? = null
+) : Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readValue(Int::class.java.classLoader) as? Int) {
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Int::class.java.classLoader) as? Int
+    ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(productKey)
         parcel.writeString(productCost)
         parcel.writeString(productName)
         parcel.writeString(productDescription)

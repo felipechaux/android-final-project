@@ -1,4 +1,4 @@
-package com.example.yourfarmerapp.view
+package com.felipechauxlab.yourfarmerapp.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.ActivityIntroBinding
+import com.example.yourfarmerapp.view.MainActivity
 import com.example.yourfarmerapp.view.adapter.ViewPagerAdapter
 import com.example.yourfarmerapp.view.fragment.IntroOneFragment
-import com.example.yourfarmerapp.view.fragment.IntroThreeFragment
+import com.felipechauxlab.yourfarmerapp.view.fragment.IntroThreeFragment
 import com.example.yourfarmerapp.view.fragment.IntroTwoFragment
 
 class IntroActivity : AppCompatActivity() {
