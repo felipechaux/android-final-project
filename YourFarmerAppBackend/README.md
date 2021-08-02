@@ -1,5 +1,9 @@
 **Principal-layouts**
 
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-6.jpg" />
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/edit-1.jpg" />
+<img src="https://github.com/felipechaux/android-final-project/blob/master/captures/edit-success.jpg" />
+
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-1.png" />
 
 <img src="https://github.com/felipechaux/android-final-project/blob/master/captures/publish-product-2.png" />
