@@ -52,6 +52,11 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
                 refreshContent()
             }
         })
+        viewModel.successProductRemoved.observe(viewLifecycleOwner, Observer {
+            if(it){
+                refreshContent()
+            }
+        })
 
     }
 
@@ -85,7 +90,7 @@ class ProductsFragment : Fragment(), IProductsFragmentView {
                     showEditProductDialog(product)
                 }
                 R.id.btn_delete -> {
-                    println("delete $product")
+                    activity?.let { product?.productKey?.let { p -> viewModel.deletePublishProduct(it, p) } }
                 }
             }
         }

@@ -13,6 +13,7 @@ object ConstantsRestApi {
     const val POST_AUTH_USER = "auth-user"
     const val POST_PUBLISH_PRODUCT = "publish-product"
     const val POST_EDIT_PRODUCT = "edit-product"
+    const val DELETE_PRODUCT = "delete-product/{id}"
     const val GET_PUBLISH_PRODUCTS = "products"
     const val UPLOAD_PHOTO = " https://api.cloudinary.com/v1_1/dpyqmhhmi/image/upload?upload_preset=t3ihtvhc"
 }

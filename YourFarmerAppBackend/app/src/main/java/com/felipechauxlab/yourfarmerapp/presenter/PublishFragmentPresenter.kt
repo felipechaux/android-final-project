@@ -32,6 +32,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
 
     private val _showOrHideLoader = MutableLiveData<Boolean>()
     private val _successProductUpdated = MutableLiveData<Boolean>()
+    private val _successProductRemoved = MutableLiveData<Boolean>()
     private val _uploadedPhotoSuccess = MutableLiveData<String?>()
     private var products: List<PublishProductDTO?>? = null
     private var iProductsV: IProductsFragmentView?=null
@@ -41,6 +42,9 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
 
     val successProductUpdated: LiveData<Boolean>
         get() = _successProductUpdated
+
+    val successProductRemoved: LiveData<Boolean>
+        get() = _successProductRemoved
 
     val uploadedPhotoSuccess: LiveData<String?>
         get() =_uploadedPhotoSuccess
@@ -104,6 +108,10 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
         }
     }
 
+    fun deletePublishProduct(context: Context, idProduct: String){
+        deleteProduct(context,idProduct)
+    }
+
     private fun postEditProduct(context: Context, requestPublishProductDTO: RequestPublishProductDTO) {
         _showOrHideLoader.value = true
         RestApiAdapter.build()?.postEditProduct(requestPublishProductDTO)?.enqueue(
@@ -124,6 +132,29 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
                     }
                 }
             }
+        )
+    }
+
+
+    private fun deleteProduct(context: Context, id:String) {
+        _showOrHideLoader.value = true
+        RestApiAdapter.build()?.deleteProduct(id)?.enqueue(
+                object : Callback<ResponseDTO> {
+                    override fun onFailure(call: Call<ResponseDTO>, t: Throwable) {
+                        _showOrHideLoader.value = false
+                        Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
+                    }
+                    override fun onResponse(call: Call<ResponseDTO>, response: Response<ResponseDTO>) {
+                        val res = response.body()
+                        _showOrHideLoader.value = false
+                        if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
+                            _successProductRemoved.value=true
+                            Toast.makeText(context, context.getString(R.string.product_removed), Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
         )
     }
 

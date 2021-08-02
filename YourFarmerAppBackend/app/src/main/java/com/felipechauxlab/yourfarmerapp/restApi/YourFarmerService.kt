@@ -9,10 +9,14 @@ import com.felipechauxlab.yourfarmerapp.restApi.dto.response.ResponsePublishProd
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface YourFarmerService {
 
@@ -31,6 +35,9 @@ interface YourFarmerService {
 
     @POST(ConstantsRestApi.POST_EDIT_PRODUCT)
     fun postEditProduct(@Body requestPublishProductDTO: RequestPublishProductDTO): Call<ResponseDTO>
+
+    @DELETE(ConstantsRestApi.DELETE_PRODUCT)
+    fun deleteProduct(@Path("id") id: String): Call<ResponseDTO>
 
     @GET(ConstantsRestApi.GET_PUBLISH_PRODUCTS)
     fun getPublishProducts(): Call<ResponsePublishProductsDTO>
