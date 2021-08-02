@@ -1,6 +1,4 @@
 
-
-Oapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/MainViewModelFactory.kt,b/3/b382b07187cbcfeb4978c8e27cd8f88a62936cd4
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 u
@@ -25,14 +23,8 @@ Wapp/src/main/java/com/felipechauxlab/yourfarmerapp/presenter/ILoginFragmentPres
 Yapp/src/main/java/com/felipechauxlab/yourfarmerapp/presenter/IPublishFragmentPresenter.kt,0/f/0f8ac5eeb03b9f1d44c6511c6b551388e5980729
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
-x
-Happ/src/main/java/com/felipechauxlab/yourfarmerapp/view/MainViewModel.kt,d/7/d76622838729cebae174f3f3fbe914dfa7e054e5
 w
 Gapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/HomeActivity.kt,3/1/31907d65fece2e95cde48e5f7836f95add22b67f
-
-Qapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/LoginFragment.kt,f/7/f7ff0f809edf664689b3ffe98bc286e2dae9c9d5
-†
-Vapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/IntroThreeFragment.kt,1/6/165d424a00d95a2ca3455faeb298b7af01297e65
 v
 Fapp/src/main/java/com/felipechauxlab/yourfarmerapp/entities/Product.kt,7/8/783b289f2e69d27a3483982dfff10e5252a58e90
 •
@@ -43,14 +35,10 @@ Wapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/SharedDialogView
 Papp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/DialogProvider.kt,e/b/eb8e8eb2b8a40d1a6c69f46c59c36b3aff79d0a5
 …
 Uapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/DialogBundleFactory.kt,8/a/8ac0f9a3c0703950d3a37dfa505ed675a9238bd0
-r
-Bapp/src/main/java/com/felipechauxlab/yourfarmerapp/HomeFragment.kt,b/4/b49bf79964336ab748fadc78beff7ee462f7722c
 ‰
 Yapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/IProductsFragmentView.kt,c/4/c487a12e7dc264269f1bbfcb3d741d31aadde8ce
 ƒ
 Sapp/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/PublishProductDTO.kt,9/9/99e613f99ff94c0680477544cb9dc5f2caafcfd8
-ƒ
-Sapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/PublishFragment.kt,6/b/6bb2f22b14470a45e2845a50070e1f870d406fb6
 ’
 bapp/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/request/RequestPublishProductDTO.kt,f/4/f46fc73d84314da32850d7418212c444fc3d2a19
 †

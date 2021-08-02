@@ -1,11 +1,13 @@
-package com.example.yourfarmerapp.view.fragment
+package com.felipechauxlab.yourfarmerapp.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.yourfarmerapp.databinding.FragmentIntroTwoBinding
+import com.felipechauxlab.yourfarmerapp.view.MainViewModel
 
 class IntroTwoFragment : Fragment() {
 
@@ -19,4 +21,5 @@ class IntroTwoFragment : Fragment() {
         val view = binding?.root
         return view
     }
+
 }

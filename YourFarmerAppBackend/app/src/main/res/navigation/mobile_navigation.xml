@@ -46,7 +46,7 @@
         tools:layout="@layout/activity_home" />
     <fragment
         android:id="@+id/introOneFragment"
-        android:name="com.example.yourfarmerapp.view.fragment.IntroOneFragment"
+        android:name="com.felipechauxlab.yourfarmerapp.view.fragment.IntroOneFragment"
         android:label="fragment_intro_one"
         tools:layout="@layout/fragment_intro_one" />
     <fragment
