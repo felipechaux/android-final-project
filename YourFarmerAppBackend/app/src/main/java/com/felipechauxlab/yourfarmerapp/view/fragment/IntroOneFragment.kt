@@ -14,6 +14,7 @@ class IntroOneFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentIntroOneBinding? = null
     private val binding get() = _binding
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -22,6 +23,11 @@ class IntroOneFragment : Fragment() {
         addButtonsListener()
         mainViewModel.playWelcomeSound()
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mainViewModel.stopWelcomeSound()
     }
 
     private fun addButtonsListener() {
