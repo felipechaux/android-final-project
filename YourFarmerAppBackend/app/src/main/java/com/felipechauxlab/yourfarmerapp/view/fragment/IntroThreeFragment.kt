@@ -1,6 +1,5 @@
 package com.felipechauxlab.yourfarmerapp.view.fragment
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

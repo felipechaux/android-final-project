@@ -9,15 +9,15 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.FragmentLoginBinding
-import com.felipechauxlab.yourfarmerapp.view.MainViewModel
-import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User
 import com.felipechauxlab.yourfarmerapp.presenter.LoginFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
+import com.felipechauxlab.yourfarmerapp.view.MainViewModel
+import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
+import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 
 class LoginFragment : Fragment() {
 
@@ -28,10 +28,14 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding
     private lateinit var navController: NavController
 
+    companion object {
+        const val REQUEST_CHECK_SETTINGS = 43
+    }
+
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding?.root
@@ -56,7 +60,6 @@ class LoginFragment : Fragment() {
                 goToIntroActivity()
             }
         })
-
     }
 
     private fun showLoader() {
@@ -83,11 +86,12 @@ class LoginFragment : Fragment() {
 
     private fun showRegisterDialog() {
         DialogProvider.showRegisterDialog(
-                this,
-                sharedViewModel,
-                R.id.action_loginFragment_to_farmerDialogFragment, positiveCallback = { user ->
-            NavigationUtils.closeDialog(navController, R.id.farmerDialogFragment)
-            activity?.let { viewModel.registerUser(it, user) }
-        })
+            this,
+            sharedViewModel,
+            R.id.action_loginFragment_to_farmerDialogFragment, positiveCallback = { user ->
+                NavigationUtils.closeDialog(navController, R.id.farmerDialogFragment)
+                activity?.let { viewModel.registerUser(it, user) }
+            })
     }
+
 }

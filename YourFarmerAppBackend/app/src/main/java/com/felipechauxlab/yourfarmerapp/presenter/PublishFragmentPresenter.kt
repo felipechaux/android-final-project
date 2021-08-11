@@ -34,6 +34,8 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
     private val _successProductUpdated = MutableLiveData<Boolean>()
     private val _successProductRemoved = MutableLiveData<Boolean>()
     private val _uploadedPhotoSuccess = MutableLiveData<String?>()
+    private val _latitude = MutableLiveData<Float?>()
+    private val _longitude = MutableLiveData<Float?>()
     private var products: List<PublishProductDTO?>? = null
     private var iProductsV: IProductsFragmentView?=null
 
@@ -48,6 +50,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
 
     val uploadedPhotoSuccess: LiveData<String?>
         get() =_uploadedPhotoSuccess
+
 
     fun uploadPhoto(context: Context, file: File) {
         val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
@@ -158,6 +161,10 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
         )
     }
 
+    fun setCurrentLocation(latitude:Float?, longitude:Float?){
+        _latitude.value=latitude
+        _longitude.value=longitude
+    }
 
     fun validatePublishProduct(context: Context, photoUrl: String?, name: String?, description: String, cost: String?, quantity: Int){
       if (photoUrl!=null  && name!=null && cost?.isNotEmpty() == true) {
@@ -167,6 +174,8 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
               this.productCost=cost.toLong()
               this.productPhoto=photoUrl
               this.productQuantity=quantity
+              this.latitude=_latitude.value
+              this.longitude=_longitude.value
           }
           postPublishProduct(context, createRequestPublishProduct)
       }else{

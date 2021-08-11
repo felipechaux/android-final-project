@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.ActivityIntroBinding
-import com.example.yourfarmerapp.view.MainActivity
 import com.example.yourfarmerapp.view.adapter.ViewPagerAdapter
 import com.felipechauxlab.yourfarmerapp.view.fragment.IntroOneFragment
 import com.felipechauxlab.yourfarmerapp.view.fragment.IntroThreeFragment

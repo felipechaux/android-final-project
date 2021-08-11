@@ -8,9 +8,13 @@ class MainViewModel : ViewModel() {
     private val _showTabLayout = MutableLiveData<Boolean>()
     private val _playWelcomeSound = MutableLiveData<Boolean>()
     private val _playMapSound = MutableLiveData<Boolean>()
+    private val _requestLocation = MutableLiveData<Boolean>()
 
     val showTabLayout: LiveData<Boolean>
         get() = _showTabLayout
+
+    val requestLocation: LiveData<Boolean>
+        get() = _requestLocation
 
     val playWelcomeSound: LiveData<Boolean>
         get() = _playWelcomeSound
@@ -41,6 +45,10 @@ class MainViewModel : ViewModel() {
 
     fun stopMapSound(){
         _playMapSound.value=false
+    }
+
+    fun requestLocation(){
+        _requestLocation.value=true
     }
 
 }
