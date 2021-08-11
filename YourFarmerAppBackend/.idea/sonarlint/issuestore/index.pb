@@ -19,8 +19,6 @@ w
 Gapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/HomeActivity.kt,3/1/31907d65fece2e95cde48e5f7836f95add22b67f
 v
 Fapp/src/main/java/com/felipechauxlab/yourfarmerapp/entities/Product.kt,7/8/783b289f2e69d27a3483982dfff10e5252a58e90
-•
-eapp/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/response/ResponsePublishProductsDTO.kt,b/a/ba41f67e3019f1d2d7a51ce09cbc1091d4a242d6
 ‡
 Wapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/SharedDialogViewModel.kt,0/5/05439a0e1b5ee565937b9a3e1a40ba6914422fb9
 €
@@ -29,8 +27,6 @@ Papp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/DialogProvider.k
 Uapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/DialogBundleFactory.kt,8/a/8ac0f9a3c0703950d3a37dfa505ed675a9238bd0
 ‰
 Yapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/fragment/IProductsFragmentView.kt,c/4/c487a12e7dc264269f1bbfcb3d741d31aadde8ce
-ƒ
-Sapp/src/main/java/com/felipechauxlab/yourfarmerapp/restApi/dto/PublishProductDTO.kt,9/9/99e613f99ff94c0680477544cb9dc5f2caafcfd8
 †
 Vapp/src/main/java/com/felipechauxlab/yourfarmerapp/view/dialog/FarmerDialogFragment.kt,7/0/70060664f3e1f2372326b3adcb295423fb687d40
 ~

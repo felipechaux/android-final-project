@@ -10,15 +10,19 @@ data class PublishProductDTO(
     @SerializedName("productName") var productName: String? = null,
     @SerializedName("productDescription") var productDescription: String? = null,
     @SerializedName("productPhoto") var productPhoto: String? = null,
-    @SerializedName("productQuantity") var productQuantity: Int? = null
+    @SerializedName("productQuantity") var productQuantity: Int? = null,
+    @SerializedName("latitude") var latitude: Double? = null,
+    @SerializedName("longitude") var longitude: Double? = null
+
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Int
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readValue(Double::class.java.classLoader) as? Double, parcel.readValue(Double::class.java.classLoader) as? Double
     ) {
     }
 
@@ -29,6 +33,8 @@ data class PublishProductDTO(
         parcel.writeString(productDescription)
         parcel.writeString(productPhoto)
         parcel.writeValue(productQuantity)
+        parcel.writeValue(latitude)
+        parcel.writeValue(longitude)
     }
 
     override fun describeContents(): Int {
