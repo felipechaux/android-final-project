@@ -5,7 +5,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.location.Location
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater

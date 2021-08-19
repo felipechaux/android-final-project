@@ -36,7 +36,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
     private val _uploadedPhotoSuccess = MutableLiveData<String?>()
     private val _latitude = MutableLiveData<Float?>()
     private val _longitude = MutableLiveData<Float?>()
-    private var products: List<PublishProductDTO?>? = null
+    private val _products= MutableLiveData<List<PublishProductDTO?>?>()
     private var iProductsV: IProductsFragmentView?=null
 
     val showOrHideLoader: LiveData<Boolean>
@@ -51,6 +51,8 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
     val uploadedPhotoSuccess: LiveData<String?>
         get() =_uploadedPhotoSuccess
 
+    val products: LiveData<List<PublishProductDTO?>?>
+        get() =_products
 
     fun uploadPhoto(context: Context, file: File) {
         val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
@@ -183,7 +185,6 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
       }
     }
 
-
      fun bitmapToFile(context: Context, bitmap: Bitmap): File {
         val wrapper = ContextWrapper(context)
         var file = wrapper.getDir("Images", Context.MODE_PRIVATE)
@@ -199,7 +200,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
         return file
     }
 
-    override fun getPublishProducts(context: Context,iProductsFragmentView: IProductsFragmentView) {
+    override fun getPublishProducts(context: Context, iProductsFragmentView: IProductsFragmentView?) {
         iProductsV=iProductsFragmentView
         _showOrHideLoader.value = true
         RestApiAdapter.build()?.getPublishProducts()?.enqueue(
@@ -213,7 +214,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
                         val res = response.body()
                         _showOrHideLoader.value = false
                         if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
-                            products= res.publishProducts
+                            _products.value= res.publishProducts
                             showPublishProducts()
                         } else {
                             Toast.makeText(context, context.getString(R.string.error_has_occurred), Toast.LENGTH_SHORT).show()
@@ -224,7 +225,7 @@ class PublishFragmentPresenter: ViewModel() ,IPublishFragmentPresenter {
     }
 
     override fun showPublishProducts() {
-        iProductsV?.createAdapter(products)?.let { iProductsV?.initAdapterMyProducts(it) }
+        iProductsV?.createAdapter(_products.value)?.let { iProductsV?.initAdapterMyProducts(it) }
         iProductsV?.generateGridLayout()
     }
 

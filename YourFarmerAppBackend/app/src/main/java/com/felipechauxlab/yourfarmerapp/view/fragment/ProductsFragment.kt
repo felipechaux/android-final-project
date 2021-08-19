@@ -1,6 +1,5 @@
 package com.felipechauxlab.yourfarmerapp.view.fragment
 
-import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ import com.example.yourfarmerapp.R
 import com.example.yourfarmerapp.databinding.FragmentProductsBinding
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.adapter.MyProductsAdapter
-import com.felipechauxlab.yourfarmerapp.presenter.IPublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.presenter.PublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils

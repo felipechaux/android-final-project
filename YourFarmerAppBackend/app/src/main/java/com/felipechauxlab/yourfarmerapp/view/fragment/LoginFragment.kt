@@ -1,5 +1,6 @@
 package com.felipechauxlab.yourfarmerapp.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,9 @@ import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User
 import com.felipechauxlab.yourfarmerapp.presenter.LoginFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
+import com.felipechauxlab.yourfarmerapp.view.MainActivity
 import com.felipechauxlab.yourfarmerapp.view.MainViewModel
+import com.felipechauxlab.yourfarmerapp.view.ProductMapActivity
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 
@@ -69,6 +72,7 @@ class LoginFragment : Fragment() {
 
     private fun addButtonsListeners() {
         binding?.buttonAccess?.setOnClickListener {
+          //  startActivity(Intent(activity, ProductMapActivity::class.java))
             val userLogin= User().apply {
                 this.userName = binding?.textUser?.text.toString()
                 this.password = binding?.textPassword?.text.toString()
