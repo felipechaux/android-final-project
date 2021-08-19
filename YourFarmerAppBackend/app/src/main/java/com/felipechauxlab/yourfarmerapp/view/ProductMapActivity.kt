@@ -1,17 +1,17 @@
 package com.felipechauxlab.yourfarmerapp.view
 
 import android.annotation.SuppressLint
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.View
 import android.widget.ImageView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.yourfarmerapp.R
-import com.felipechauxlab.yourfarmerapp.adapter.CircleTransform
-import com.felipechauxlab.yourfarmerapp.presenter.PublishFragmentPresenter
 import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -20,7 +20,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.squareup.picasso.Picasso
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
