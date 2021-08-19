@@ -32,5 +32,4 @@
     <string name="user_not_found">User not found!!</string>
     <string name="text_loading">Loading</string>
     <string name="product_image_uploaded">Image uploaded</string>
-    <string name="extra_place_location">placeLocation</string>
 </resources>

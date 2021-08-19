@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_introActivity"
             app:destination="@id/introActivity" />
+        <action
+            android:id="@+id/action_loginFragment_to_productMapActivity"
+            app:destination="@id/productMapActivity" />
     </fragment>
 
     <dialog
@@ -58,4 +61,9 @@
             android:id="@+id/action_homeFragment_to_farmerDialogFragment"
             app:destination="@id/farmerDialogFragment" />
     </fragment>
+    <activity
+        android:id="@+id/productMapActivity"
+        android:name="com.felipechauxlab.yourfarmerapp.view.ProductMapActivity"
+        android:label="activity_product_map"
+        tools:layout="@layout/activity_product_map" />
 </navigation>

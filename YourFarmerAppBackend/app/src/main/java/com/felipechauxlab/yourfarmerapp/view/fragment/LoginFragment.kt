@@ -1,10 +1,10 @@
 package com.felipechauxlab.yourfarmerapp.view.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -15,10 +15,11 @@ import com.example.yourfarmerapp.databinding.FragmentLoginBinding
 import com.example.yourfarmerapp.view.dialog.SharedDialogViewModel
 import com.felipechauxlab.yourfarmerapp.entities.User
 import com.felipechauxlab.yourfarmerapp.presenter.LoginFragmentPresenter
+import com.felipechauxlab.yourfarmerapp.presenter.PublishFragmentPresenter
+import com.felipechauxlab.yourfarmerapp.restApi.dto.PublishProductDTO
 import com.felipechauxlab.yourfarmerapp.utils.NavigationUtils
-import com.felipechauxlab.yourfarmerapp.view.MainActivity
 import com.felipechauxlab.yourfarmerapp.view.MainViewModel
-import com.felipechauxlab.yourfarmerapp.view.ProductMapActivity
+import com.felipechauxlab.yourfarmerapp.view.PublishViewModelFactory
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogBundleFactory
 import com.felipechauxlab.yourfarmerapp.view.dialog.DialogProvider
 
@@ -26,10 +27,12 @@ class LoginFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by activityViewModels()
     private val viewModel: LoginFragmentPresenter by activityViewModels()
+    private val publishViewModel: PublishFragmentPresenter by activityViewModels()
     private val sharedViewModel: SharedDialogViewModel by activityViewModels()
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding
     private lateinit var navController: NavController
+    private var productsMapArr: ArrayList<PublishProductDTO?>?=null
 
     companion object {
         const val REQUEST_CHECK_SETTINGS = 43
@@ -63,6 +66,20 @@ class LoginFragment : Fragment() {
                 goToIntroActivity()
             }
         })
+
+        viewModel.goToMap.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                activity?.let { activity -> publishViewModel.getPublishProducts(activity, null) }
+            }
+        })
+
+        publishViewModel.products.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                productsMapArr = ArrayList(it)
+                println("products map enable $productsMapArr")
+                 goToProductMapActivity()
+            }
+        })
     }
 
     private fun showLoader() {
@@ -72,7 +89,6 @@ class LoginFragment : Fragment() {
 
     private fun addButtonsListeners() {
         binding?.buttonAccess?.setOnClickListener {
-          //  startActivity(Intent(activity, ProductMapActivity::class.java))
             val userLogin= User().apply {
                 this.userName = binding?.textUser?.text.toString()
                 this.password = binding?.textPassword?.text.toString()
@@ -86,6 +102,12 @@ class LoginFragment : Fragment() {
 
     private fun goToIntroActivity() {
         navController.navigate(R.id.action_loginFragment_to_introActivity)
+    }
+
+    private fun goToProductMapActivity() {
+        val bundle = Bundle()
+        bundle.putParcelableArrayList(getString(R.string.extra_product_map_arr),productsMapArr)
+        navController.navigate(R.id.action_loginFragment_to_productMapActivity,bundle)
     }
 
     private fun showRegisterDialog() {

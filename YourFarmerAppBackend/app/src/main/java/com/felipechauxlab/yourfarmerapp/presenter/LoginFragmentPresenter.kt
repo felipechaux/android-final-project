@@ -20,13 +20,16 @@ class LoginFragmentPresenter : ViewModel() {
 
     private val _showOrHideLoader = MutableLiveData<Boolean>()
     private val _goToIntro = MutableLiveData<Boolean>()
-
+    private val _goToMap = MutableLiveData<Boolean>()
 
     val showOrHideLoader: LiveData<Boolean>
         get() = _showOrHideLoader
 
     val goToIntro: LiveData<Boolean>
         get() = _goToIntro
+
+    val goToMap: LiveData<Boolean>
+        get() = _goToMap
 
 
     fun registerUser(context: Context, user: User) {
@@ -87,7 +90,11 @@ class LoginFragmentPresenter : ViewModel() {
                         val res = response.body()
                         _showOrHideLoader.value = false
                         if (res?.code == ConstantsRestApi.CODE_SUCCESS) {
-                            _goToIntro.value = true
+                            if(res.user?.isFarmer == true){
+                                _goToIntro.value = true
+                            }else{
+                                _goToMap.value = true
+                            }
                         } else {
                             Toast.makeText(context, context.getString(R.string.user_not_found), Toast.LENGTH_SHORT).show()
                         }

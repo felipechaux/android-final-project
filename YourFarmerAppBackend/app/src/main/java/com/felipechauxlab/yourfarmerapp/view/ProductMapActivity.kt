@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.squareup.picasso.Picasso
@@ -27,61 +28,43 @@ import java.net.URL
 
 class ProductMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private val viewModel: PublishFragmentPresenter by viewModels { PublishViewModelFactory() }
     private lateinit var mMap: GoogleMap
     private var placeLocation: LatLng? = null
-    private var locations: ArrayList<LatLng>? = null
-    private var productsMap: List<PublishProductDTO?>?=null
+    private var productsMapArr: ArrayList<PublishProductDTO?>?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_map)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        addObservers()
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        getExtraProducts()
     }
 
-    private fun addObservers() {
-        viewModel.products.observe(this, Observer {
-            it?.let {
-                productsMap = it
-                loadLocations()
-                println("products map enable $productsMap")
-            }
-        })
-    }
-
-    private fun loadLocations() {
-        locations = ArrayList()
-        productsMap?.let {
-            for (product in it){
-                locations?.add(LatLng(product?.latitude!!.toDouble(), product.longitude!!.toDouble()))
-            }
+    private fun getExtraProducts() {
+        try {
+            val params = intent.extras
+            productsMapArr = params?.getParcelableArrayList(getString(R.string.extra_product_map_arr))
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        println("locations loaded $locations")
     }
-
 
     override fun onMapReady(googleMap: GoogleMap) {
-        viewModel.getPublishProducts(this, null)
         mMap = googleMap
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
-
         placeLocation = LatLng(4.2390239, -74.230111219)
-       /*mMap.addMarker(placeLocation?.let {
-            //  MarkerOptions().position(it).title("Marker ").icon(BitmapDescriptorFactory.fromBitmap(getBitmapFromLink("https://res.cloudinary.com/dpyqmhhmi/image/upload/v1627937551/nji6scjofgbff5peup9k.jpg")))
-            MarkerOptions().position(it).title("Marker ").icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromView("https://res.cloudinary.com/dpyqmhhmi/image/upload/v1627937551/nji6scjofgbff5peup9k.jpg")))
-        })*/
+
+        // MarkerOptions().position(it).title("Marker ").icon(BitmapDescriptorFactory.fromBitmap(getBitmapFromLink("https://res.cloudinary.com/dpyqmhhmi/image/upload/v1627937551/nji6scjofgbff5peup9k.jpg")))
+        //MarkerOptions().position(it).title("Marker ").icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromView("https://res.cloudinary.com/dpyqmhhmi/image/upload/v1627937551/nji6scjofgbff5peup9k.jpg")))
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(placeLocation))
 
-        println("map ready y locations  $locations")
-
-        locations?.let {
-            for (i in 0 until it.size) {
-                mMap.addMarker(MarkerOptions().position(it[i]).title("p $i"))
+        productsMapArr?.let {
+            for (product in it) {
+                mMap.addMarker(MarkerOptions().position(LatLng(product?.latitude!!.toDouble(), product.longitude!!.toDouble())).title(product.productName)
+                        .icon(BitmapDescriptorFactory.fromBitmap(product.productPhoto?.let { p -> getMarkerBitmapFromView(p) })))
             }
         }
     }
@@ -118,14 +101,6 @@ class ProductMapActivity : AppCompatActivity(), OnMapReadyCallback {
         drawable?.draw(canvas)
         customMarkerView.draw(canvas)
         return returnedBitmap
-    }
-
-    private fun getImageUrl(image: ImageView, url: String) {
-        try {
-            Picasso.get().load(url).transform(CircleTransform()).into(image)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 
 }
